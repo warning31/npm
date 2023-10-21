@@ -52,7 +52,7 @@ _paketlerikaldir() {
 _klasorolustur() {
     echo -n "Klasor Olusturluyor" 1>&3
     mkdir -p /root/npm
-
+    mkdir -p /root/npm/data
     echo "Paketler Kaldirildi" 1>&3
 }
 
