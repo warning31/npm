@@ -121,6 +121,7 @@ EOF
 
 _npminstall() {
     echo  "Npm Kuruluyor" 1>&3
+    cd /root/npm
     docker-compose up -d
     echo "Npm Kuruldu" 1>&3
 }
