@@ -8,8 +8,13 @@ main() {
 
     printf "\033c"
 
+    echo -e "NPM Kurulumuna Hosgeldiniz"
     echo
-    echo "Kurulum Basliyor"
+
+   sleep 5
+
+    echo
+    echo "Kurulumu Basliyor"
     echo
 
     exec 3>&1 1>>${OUTPUTLOG} 2>&1
@@ -34,6 +39,7 @@ main() {
 _paketlerikaldir() {
     echo -n "Paketler Kaldiriliyor" 1>&3
     apt-get  -y remove docker docker-engine docker.io containerd runc
+
     echo  "Paketler Kaldirildi" 1>&3
 
 }
