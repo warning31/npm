@@ -37,7 +37,7 @@ main() {
 
 
 _paketlerikaldir() {
-    echo -n "Paketler Kaldiriliyor" 1>&3
+    echo  "Paketler Kaldiriliyor" 1>&3
     apt-get  -y remove docker docker-engine docker.io containerd runc
 
     echo  "Paketler Kaldirildi" 1>&3
@@ -45,14 +45,14 @@ _paketlerikaldir() {
 }
 
 _klasorolustur() {
-    echo -n "Klasor Olusturluyor" 1>&3
+    echo  "Klasor Olusturluyor" 1>&3
     mkdir -p /root/npm
     mkdir -p /root/npm/data
     echo "Klasor Olusturuldu" 1>&3
 }
 
 _repoekleniyor() {
-    echo -n "Repo Ekleniyor" 1>&3
+    echo  "Repo Ekleniyor" 1>&3
     apt-get update
     apt-get install  -y ca-certificates curl gnupg lsb-release
     curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
@@ -63,14 +63,14 @@ _repoekleniyor() {
 
 
 _dockerkuruluyor() { 
-    echo -n "Docker Kuruluyor" 1>&3
+    echo  "Docker Kuruluyor" 1>&3
       apt-get update
       apt-get -y install docker-ce docker-ce-cli containerd.io
     echo  "Docker Kuruldu" 1>&3
 }
 
 _docketcomposekur() {
-    echo -n "Docker Compose Kuruluyor" 1>&3
+    echo  "Docker Compose Kuruluyor" 1>&3
    curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
    chmod +x /usr/local/bin/docker-compose
    ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
@@ -79,7 +79,7 @@ _docketcomposekur() {
 
 _dockercomposeymlolustur() {
 
-    echo -n "Dockercompose yml Olusturluyor" 1>&3
+    echo  "Dockercompose yml Olusturluyor" 1>&3
     cat <<EOF >/root/npm/docker-compose.yml
 version: '3.8'
 services:
