@@ -19,6 +19,8 @@ main() {
 
     exec 3>&1 1>>${OUTPUTLOG} 2>&1
 
+    _updateyapiliyor
+    
     _paketlerikaldir
 
     _klasorolustur
@@ -32,6 +34,16 @@ main() {
     _dockercomposeymlolustur
 
     _npminstall
+
+}
+
+_updateyapiliyor() {
+    echo  "Sistem update Yapiliyor" 1>&3
+    apt-get -y update
+    apt -y update
+    apt-get -y upgrade
+    apt -y upgrade
+    echo  "Sistem update Yapiliyor" 1>&3
 
 }
 
