@@ -32,6 +32,8 @@ main() {
 
     _dockercomposeymlolustur
 
+    _npminstall
+
 
 }
 
@@ -123,5 +125,9 @@ EOF
     echo "Dockercompose yml Olusturuldu" 1>&3
 }
 
-
+_npminstall() {
+    echo  "Npm Kuruluyor" 1>&3
+    docker-compose up -d
+    echo "Npm Kuruldu" 1>&3
+}
 main
