@@ -44,7 +44,7 @@ main() {
 
 _paketlerikaldir() {
     echo -n "Paketler Kaldiriliyor" 1>&3
-    sudo apt-get remove docker docker-engine docker.io containerd runc
+    sudo apt-get  -y remove docker docker-engine docker.io containerd runc
         echo "Paketler Kaldirildi" 1>&3
 
 }
@@ -78,7 +78,7 @@ echo \
 _dockerkuruluyor() { 
     echo -n "Docker Kuruluyor" 1>&3
     sudo apt-get update
-    sudo apt-get install docker-ce docker-ce-cli containerd.io
+    sudo apt-get -y install docker-ce docker-ce-cli containerd.io
     echo "Docker Kuruldu" 1>&3
 }
 
