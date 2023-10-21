@@ -8,17 +8,16 @@ main() {
 
     printf "\033c"
 
-    echo -e "NPM Kurulumuna Hosgeldiniz"
+    echo  "NPM Kurulumuna Hosgeldiniz"
     echo
 
-   sleep 5
+    sleep 5
 
     echo
     echo "Kurulumu Basliyor"
     echo
 
     exec 3>&1 1>>${OUTPUTLOG} 2>&1
-
 
     _paketlerikaldir
 
@@ -34,14 +33,11 @@ main() {
 
     _npminstall
 
-
 }
-
 
 _paketlerikaldir() {
     echo  "Paketler Kaldiriliyor" 1>&3
     apt-get  -y remove docker docker-engine docker.io containerd runc
-
     echo  "Paketler Kaldirildi" 1>&3
 
 }
@@ -63,7 +59,6 @@ _repoekleniyor() {
 
 }
 
-
 _dockerkuruluyor() { 
     echo  "Docker Kuruluyor" 1>&3
       apt-get update
@@ -80,7 +75,6 @@ _docketcomposekur() {
 }
 
 _dockercomposeymlolustur() {
-
     echo  "Dockercompose yml Olusturluyor" 1>&3
     cat <<EOF >/root/npm/docker-compose.yml
 version: '3.8'
@@ -130,4 +124,5 @@ _npminstall() {
     docker-compose up -d
     echo "Npm Kuruldu" 1>&3
 }
+
 main
