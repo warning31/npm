@@ -34,7 +34,7 @@ main() {
 _paketlerikaldir() {
     echo -n "Paketler Kaldiriliyor" 1>&3
     apt-get  -y remove docker docker-engine docker.io containerd runc
-    echo "Paketler Kaldirildi" 1>&3
+    echo -n "Paketler Kaldirildi" 1>&3
 
 }
 
@@ -42,19 +42,16 @@ _klasorolustur() {
     echo -n "Klasor Olusturluyor" 1>&3
     mkdir -p /root/npm
     mkdir -p /root/npm/data
-    echo "Klasor Olusturuldu" 1>&3
+    echo -n "Klasor Olusturuldu" 1>&3
 }
 
 _repoekleniyor() {
     echo -n "Repo Ekleniyor" 1>&3
     apt-get update
     apt-get install  -y ca-certificates curl gnupg lsb-release
-
-    
-        # Docker yüklemesini gerçekleştir
-        curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
-        echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
-        echo "Repo Eklendi" 1>&3
+    curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
+    echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+    echo -n "Repo Eklendi" 1>&3
 
 }
 
@@ -63,15 +60,15 @@ _dockerkuruluyor() {
     echo -n "Docker Kuruluyor" 1>&3
       apt-get update
       apt-get -y install docker-ce docker-ce-cli containerd.io
-    echo "Docker Kuruldu" 1>&3
+    echo -n "Docker Kuruldu" 1>&3
 }
 
 _docketcomposekur() {
     echo -n "Docker Compose Kuruluyor" 1>&3
-   sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
-   sudo chmod +x /usr/local/bin/docker-compose
-   sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
-    echo "Docker Compose Kuruldu" 1>&3
+   curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+   chmod +x /usr/local/bin/docker-compose
+   ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
+    echo -n "Docker Compose Kuruldu" 1>&3
 }
 
 _dockercomposeymlolustur() {
@@ -117,7 +114,7 @@ services:
       - ./mysql:/var/lib/mysql
 EOF
     
-    echo "Dockercompose yml Olusturuldu" 1>&3
+    echo -n "Dockercompose yml Olusturuldu" 1>&3
 }
 
 
