@@ -37,6 +37,7 @@ main() {
 
 _paketlerikaldir() {
     echo  "Paketler Kaldiriliyor" 1>&3
+    apt-get update
     apt-get  -y remove docker docker-engine docker.io containerd runc
     echo  "Paketler Kaldirildi" 1>&3
 
