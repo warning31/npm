@@ -12,7 +12,7 @@ main() {
     echo "Kurulum Basliyor"
     echo
 
-    exec 3>&1 1>> "Log Yaziliyor" 2>&1
+    exec 3>&1 1>>${OUTPUTLOG} 2>&1
 
 
     _paketlerikaldir
@@ -34,7 +34,7 @@ main() {
 _paketlerikaldir() {
     echo -n "Paketler Kaldiriliyor" 1>&3
     apt-get  -y remove docker docker-engine docker.io containerd runc
-    echo -n "Paketler Kaldirildi" 1>&3
+    echo "Paketler Kaldirildi" 1>&3
 
 }
 
@@ -42,7 +42,7 @@ _klasorolustur() {
     echo -n "Klasor Olusturluyor" 1>&3
     mkdir -p /root/npm
     mkdir -p /root/npm/data
-    echo -n "Klasor Olusturuldu" 1>&3
+    echo "Klasor Olusturuldu" 1>&3
 }
 
 _repoekleniyor() {
@@ -54,7 +54,7 @@ _repoekleniyor() {
         # Docker yüklemesini gerçekleştir
         curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
         echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
-        echo -n "Repo Eklendi" 1>&3
+        echo "Repo Eklendi" 1>&3
 
 }
 
@@ -63,7 +63,7 @@ _dockerkuruluyor() {
     echo -n "Docker Kuruluyor" 1>&3
       apt-get update
       apt-get -y install docker-ce docker-ce-cli containerd.io
-    echo -n "Docker Kuruldu" 1>&3
+    echo "Docker Kuruldu" 1>&3
 }
 
 _docketcomposekur() {
@@ -71,7 +71,7 @@ _docketcomposekur() {
    sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
    sudo chmod +x /usr/local/bin/docker-compose
    sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
-    echo -n "Docker Compose Kuruldu" 1>&3
+    echo "Docker Compose Kuruldu" 1>&3
 }
 
 _dockercomposeymlolustur() {
@@ -117,7 +117,7 @@ services:
       - ./mysql:/var/lib/mysql
 EOF
     
-    echo -n "Dockercompose yml Olusturuldu" 1>&3
+    echo "Dockercompose yml Olusturuldu" 1>&3
 }
 
 
