@@ -43,7 +43,6 @@ _updateyapiliyor() {
     apt -y update
     apt-get -y upgrade
     apt -y upgrade
-    apt-get install  -y Readline
     echo  "Sistem update Yapiliyor" 1>&3
 
 }
