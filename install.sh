@@ -35,6 +35,16 @@ main() {
 
     _npminstall
 
+
+if $(YesOrNo "Sunucuyu Yeniden Baslat"); then
+        1>&3
+        echo "Sunucuyu Yeniden Baslat" 1>&3
+        /sbin/reboot
+    else
+        cd /root
+    fi
+
+
 }
 
 _updateyapiliyor() {
@@ -138,6 +148,17 @@ _npminstall() {
     cd /root/npm
     docker-compose up -d
     echo "Npm Kuruldu" 1>&3
+}
+
+YesOrNo() {
+    while :; do
+        echo -n "$1 (yes/no?): " 1>&3
+        read -p "$1 (yes/no?): " answer
+        case "${answer}" in
+        [yY] | [yY][eE][sS]) exit 0 ;;
+        [nN] | [nN][oO]) exit 1 ;;
+        esac
+    done
 }
 
 main
