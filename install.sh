@@ -34,7 +34,8 @@ main() {
     _dockercomposeymlolustur
 
     _npminstall
-
+    
+    _clean
 
 if $(YesOrNo "Sunucuyu Yeniden Baslat"); then
         1>&3
@@ -148,6 +149,13 @@ _npminstall() {
     cd /root/npm
     docker-compose up -d
     echo "Npm Kuruldu" 1>&3
+}
+
+_clean() {
+    rm -rf /root/install.sh
+    rm -rf /root/npm.log
+    echo "Temizlik Yapildi." 1>&3
+
 }
 
 YesOrNo() {
