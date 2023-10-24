@@ -19,7 +19,7 @@ main() {
 
     exec 3>&1 1>>${OUTPUTLOG} 2>&1
 
-    #_updateyapiliyor
+    _updateyapiliyor
     
     _paketlerikaldir
 
