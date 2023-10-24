@@ -43,6 +43,7 @@ _updateyapiliyor() {
     apt -y update
     apt-get -y upgrade
     apt -y upgrade
+    apt-get install  -y Readline
     echo  "Sistem update Yapiliyor" 1>&3
 
 }
@@ -66,6 +67,7 @@ _repoekleniyor() {
     echo  "Repo Ekleniyor" 1>&3
     apt-get update
     apt-get install  -y ca-certificates curl gnupg lsb-release
+    apt-get install -y dialog whiptail
     curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
     echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
     echo "Repo Eklendi" 1>&3
