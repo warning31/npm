@@ -50,7 +50,7 @@ if $(YesOrNo "Sunucuyu Yeniden Baslat"); then
 
 _updateyapiliyor() {
     echo  "Sistem update Yapiliyor" 1>&3
-    apt-get install -y dialog whiptail
+    apt-get install -y dialog whiptail nano
     apt-get -y update
     apt -y update
     apt-get -y upgrade
