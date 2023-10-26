@@ -69,8 +69,8 @@ _paketlerikaldir() {
 
 _klasorolustur() {
     echo  "Klasor Olusturluyor" 1>&3
-    mkdir -p /root/npm
-    mkdir -p /root/npm/data
+    mkdir -p /opt/npm
+    mkdir -p /opt/npm/data
     echo "Klasor Olusturuldu" 1>&3
 }
 
@@ -93,7 +93,7 @@ _dockerkuruluyor() {
 
 _docketcomposekur() {
     echo  "Docker Compose Kuruluyor" 1>&3
-   curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+   curl -L "https://github.com/docker/compose/releases/download/v2.23.0/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
    chmod +x /usr/local/bin/docker-compose
    ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
     echo "Docker Compose Kuruldu" 1>&3
@@ -101,7 +101,7 @@ _docketcomposekur() {
 
 _dockercomposeymlolustur() {
     echo  "Dockercompose yml Olusturluyor" 1>&3
-    cat <<EOF >/root/npm/docker-compose.yml
+    cat <<EOF >/opt/npm/docker-compose.yml
 version: '3.8'
 services:
   app:
@@ -146,7 +146,7 @@ EOF
 
 _npminstall() {
     echo  "Npm Kuruluyor" 1>&3
-    cd /root/npm
+    cd /opt/npm
     docker-compose up -d
     echo "Npm Kuruldu" 1>&3
 }
