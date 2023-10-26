@@ -152,6 +152,7 @@ _npminstall() {
 }
 
 _clean() {
+     echo  "Temizlik Yapiliyor" 1>&3
     rm -rf /root/install.sh
     rm -rf /root/npm.log
     echo "Temizlik Yapildi." 1>&3
