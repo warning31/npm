@@ -4,6 +4,7 @@
 source_host="88.99.146.8"
 source_user="root"
 source_path_prefix="/home/hls/public_html/cdn/down/"  # Değişken kısım
+source_password="DxwwEwuGhryT9d"   # Belirtilmiş şifre
 
 # Kullanıcıdan alınan kaynak yolunu kullanarak tam kaynak yolunu oluştur
 source_path="$source_path_prefix$1"
@@ -12,13 +13,7 @@ source_path="$source_path_prefix$1"
 target_host="49.12.8.157"
 target_user="root"
 target_path="/home/hls/public_html/cdn/down/"  # Sabit kısım
-
-# Kullanıcıdan şifreleri al
-read -s -p "Lütfen kaynak sunucu şifresini girin: " source_password
-echo # Yeni satıra geç
-
-read -s -p "Lütfen hedef sunucu şifresini girin: " target_password
-echo # Yeni satıra geç
+target_password="Ma.437588"  # Belirtilmiş şifre
 
 # Kontrol: Kaynak yolu belirtilmiş mi?
 if [ -z "$1" ]; then
