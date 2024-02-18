@@ -62,7 +62,7 @@ _updateyapiliyor() {
 _paketlerikaldir() {
     echo  "Paketler Kaldiriliyor" 1>&3
     apt-get update
-    apt-get  -y remove docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin runc
+    apt-get  -y remove docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
     echo  "Paketler Kaldirildi" 1>&3
 
 }
@@ -87,7 +87,7 @@ _repoekleniyor() {
 _dockerkuruluyor() { 
     echo  "Docker Kuruluyor" 1>&3
       apt-get update
-      apt-get -y install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin runc
+      apt-get -y install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
     echo  "Docker Kuruldu" 1>&3
 }
 
