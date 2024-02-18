@@ -87,7 +87,7 @@ _repoekleniyor() {
 _dockerkuruluyor() { 
     echo  "Docker Kuruluyor" 1>&3
       apt-get update
-      apt-get -y install docker.io docker-doc docker-compose docker-compose-v2 podman-docker containerd runc
+      apt-get -y install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
     echo  "Docker Kuruldu" 1>&3
 }
 
