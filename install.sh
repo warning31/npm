@@ -105,7 +105,7 @@ _dockercomposeymlolustur() {
 version: '3.8'
 services:
   app:
-    image: 'jc21/nginx-proxy-manager:latest'
+    image: 'jc21/nginx-proxy-manager'
     restart: unless-stopped
     ports:
       # These ports are in format <host-port>:<container-port>
@@ -130,7 +130,6 @@ services:
       - db
 
   db:
-#    image: 'jc21/mariadb-aria:latest'
     image: 'jc21/mariadb-aria'
     restart: unless-stopped
     environment:
