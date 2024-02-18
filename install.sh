@@ -130,7 +130,8 @@ services:
       - db
 
   db:
-    image: 'jc21/mariadb-aria:latest'
+#    image: 'jc21/mariadb-aria:latest'
+    image: 'jc21/mariadb-aria'
     restart: unless-stopped
     environment:
       MYSQL_ROOT_PASSWORD: 'npm'
